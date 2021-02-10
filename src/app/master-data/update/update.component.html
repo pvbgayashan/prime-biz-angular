@@ -1,0 +1,41 @@
+<div class="modal-header">
+  <h6 class="modal-title pull-left" [ngSwitch]="updateType">
+    <span *ngSwitchCase="UPDATE_TYPE_ENUM.ADD">New</span>
+    <span *ngSwitchCase="UPDATE_TYPE_ENUM.VIEW">View</span>
+    <span *ngSwitchCase="UPDATE_TYPE_ENUM.EDIT">Edit</span>
+    <span *ngSwitchCase="UPDATE_TYPE_ENUM.DELETE" class="text-danger">Delete</span>
+  </h6>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="hideModal()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="formGroup">
+    <div class="row">
+      <div class="col-12">
+        <div class="form-group input-group-sm">
+          <small><label for="name">Name</label></small>
+          <input type="text" class="form-control" id="name" formControlName="name">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" formControlName="active">
+            <span class="ml-2"><small>Active</small></span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default btn-sm" (click)="hideModal()">Cancel</button>
+  <span [ngSwitch]="updateType">
+    <button *ngSwitchCase="UPDATE_TYPE_ENUM.ADD" type="button" class="btn btn-success btn-sm" (click)="onSubmit()">Save</button>
+    <button *ngSwitchCase="UPDATE_TYPE_ENUM.EDIT" type="button" class="btn btn-success btn-sm" (click)="onSubmit()">Update</button>
+    <button *ngSwitchCase="UPDATE_TYPE_ENUM.DELETE" type="button" class="btn btn-danger btn-sm" (click)="onDelete()">Delete</button>
+  </span>
+</div>
