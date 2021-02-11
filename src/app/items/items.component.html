@@ -3,8 +3,21 @@
     <h5 class="text-secondary">Item Registration</h5>
   </div>
 </div>
-<div class="row">
+<div class="row mt-2">
   <div class="col-12">
-    <p>Items Content</p>
+    <button class="btn btn-primary btn-sm float-left" (click)="new()">New</button>
+  </div>
+</div>
+<div class="row mt-2">
+  <div class="col-12">
+    <ag-grid-angular
+      style="width: 100%; height: 500px;"
+      class="ag-theme-balham"
+      [rowData]="rowData"
+      [columnDefs]="columnDefs"
+      [defaultColDef]="defaultColDef"
+      [gridOptions]="gridOptions"
+      (gridReady)="gridReadyEvent($event)">
+    </ag-grid-angular>
   </div>
 </div>
