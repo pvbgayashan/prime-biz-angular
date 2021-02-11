@@ -17,7 +17,6 @@ export class ServicesComponent implements OnInit {
 
     // set grid options
     this.gridOptions = {
-      filter: true,
       context: {
         parent: this
       }
