@@ -12,6 +12,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { SharedService } from './_shared/services/shared.service';
 import { MasterDataModule } from './master-data/master-data.module';
+import { BillingModule } from './billing/billing.module';
+import { PricingModule } from './pricing/pricing.module';
+import { ServicesModule } from './services/services.module';
+import { ItemsModule } from './items/items.module';
 
 @NgModule({
   declarations: [
@@ -20,11 +24,15 @@ import { MasterDataModule } from './master-data/master-data.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireDatabaseModule,
-    BrowserAnimationsModule,
     ModalModule.forRoot(),
+    BillingModule,
+    PricingModule,
+    ServicesModule,
+    ItemsModule,
     MasterDataModule
   ],
   providers: [SharedService],
