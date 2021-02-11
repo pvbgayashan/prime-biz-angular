@@ -13,10 +13,11 @@ import { environment } from '../../environments/environment';
 })
 export class MasterDataComponent implements OnInit {
 
-  gridOptions: any;
-  gridApi: any;
-  rowData: any[] = [];
-  columnDefs: any[] = [];
+  public gridOptions: any;
+  public gridApi: any;
+  public rowData: any[] = [];
+  public columnDefs: any[] = [];
+  public defaultColDef: any;
 
   constructor(private masterDataStore: AngularFirestore,
               private bsModalService: BsModalService,
@@ -27,6 +28,15 @@ export class MasterDataComponent implements OnInit {
       context: {
         parent: this
       }
+    };
+
+    // set default col definition
+    this.defaultColDef = {
+      flex: 1,
+      minWidth: 150,
+      filter: true,
+      sortable: true,
+      floatingFilter: true
     };
 
   }
@@ -52,11 +62,23 @@ export class MasterDataComponent implements OnInit {
 
   private setColumns() {
     this.columnDefs = [
-      { headerName: 'Name', field: 'name' },
-      { headerName: 'Active', field: 'active' },
+      {
+        headerName: 'Name',
+        field: 'name',
+        filter: 'agTextColumnFilter',
+        suppressMenu: true
+      },
+      {
+        headerName: 'Active',
+        field: 'active',
+        filter: 'agTextColumnFilter',
+        suppressMenu: true
+      },
       {
         headerName: 'Actions',
         field: 'actions',
+        floatingFilter: false,
+        suppressMenu: true,
         cellRendererFramework: GridActionsComponent
       }
     ];
