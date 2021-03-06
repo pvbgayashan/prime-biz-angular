@@ -6,7 +6,7 @@
 <div class="row mt-2">
   <div class="col-2">
     <select class="form-control form-control-sm">
-      <option>Item Type</option>
+      <option *ngFor="let masterDataType of masterDataTypes | keyvalue">{{ masterDataType.value }}</option>
     </select>
   </div>
   <div class="col-10">

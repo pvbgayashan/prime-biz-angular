@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PurchasingType } from '../_shared/enum/purchasing-type.enum';
 
 @Component({
   selector: 'app-pricing',
@@ -12,6 +13,8 @@ export class PricingComponent implements OnInit {
   public rowData: any[] = [];
   public columnDefs: any[] = [];
   public defaultColDef: any;
+
+  public purchasingTypes: any = PurchasingType;
 
   constructor() {
 

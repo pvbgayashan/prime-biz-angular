@@ -5,6 +5,7 @@ import { BsModalService } from 'ngx-bootstrap/modal';
 import { UpdateComponent } from './update/update.component';
 import { SharedService } from '../_shared/services/shared.service';
 import { environment } from '../../environments/environment';
+import { MasterDataType } from '../_shared/enum/master-data-type.enum';
 
 @Component({
   selector: 'app-master-data',
@@ -18,6 +19,8 @@ export class MasterDataComponent implements OnInit {
   public rowData: any[] = [];
   public columnDefs: any[] = [];
   public defaultColDef: any;
+
+  public masterDataTypes: any = MasterDataType;
 
   constructor(private masterDataStore: AngularFirestore,
               private bsModalService: BsModalService,

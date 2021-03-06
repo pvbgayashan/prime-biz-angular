@@ -6,8 +6,7 @@
 <div class="row mt-2">
   <div class="col-2">
     <select class="form-control form-control-sm">
-      <option>Services</option>
-      <option>Items</option>
+      <option *ngFor="let purchasingType of purchasingTypes | keyvalue">{{ purchasingType.value }}</option>
     </select>
   </div>
 </div>
