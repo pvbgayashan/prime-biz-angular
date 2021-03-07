@@ -16,6 +16,8 @@ import { BillingModule } from './billing/billing.module';
 import { PricingModule } from './pricing/pricing.module';
 import { ServicesModule } from './services/services.module';
 import { ItemsModule } from './items/items.module';
+import { LoginModule } from './login/login.module';
+import { LoginService } from './_shared/services/login.service';
 
 @NgModule({
   declarations: [
@@ -29,13 +31,17 @@ import { ItemsModule } from './items/items.module';
     AngularFirestoreModule,
     AngularFireDatabaseModule,
     ModalModule.forRoot(),
+    LoginModule,
     BillingModule,
     PricingModule,
     ServicesModule,
     ItemsModule,
     MasterDataModule
   ],
-  providers: [SharedService],
+  providers: [
+    SharedService,
+    LoginService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

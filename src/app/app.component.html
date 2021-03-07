@@ -34,7 +34,7 @@
       </ul>
     </div>
     <span *ngIf="loggedUserName" class="navbar-text">
-      {{ loggedUserName }} | <a href="#">Logout</a>
+      {{ loggedUserName }} | <a href="#" (click)="onLogout()">Logout</a>
   </span>
   </nav>
 </div>
